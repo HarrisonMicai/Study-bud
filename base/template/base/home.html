@@ -12,7 +12,7 @@
         {% for room in rooms %}
         <div>
             <span>>@{{room.host.username}}</span>
-            <h5>{{room.id}} -_- <a href="{% url 'room' room.id %}">{{room.name}}</a></h5>
+            <h5>{{room.id}} _-_ <a href="{% url 'room' room.id %}">{{room.name}}</a></h5>
             <small>{{room.topic.name}}</small> 
             <hr>
         </div>
