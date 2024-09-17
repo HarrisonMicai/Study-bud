@@ -10,8 +10,18 @@
 <body>
     <!--including and extending a main template-->
     {% include 'navbar.html' %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li></li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
    <!--home page content--> 
     {% block content %}
+
 
     {% endblock %}
 
