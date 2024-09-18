@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.http import HttpResponse # 2:49:00 
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required # 2:49:00 
 from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -22,7 +22,7 @@ from .forms import RoomForm
 
 def loginPage(request):
      page = 'login'
-     if request.user.is_authenticated:
+     if request.user.is_authenticated: # 2:49:00
          return redirect('home')
 
      if request.method == 'POST':
@@ -88,7 +88,7 @@ def room(request, pk):
     context = { 'room': room}
     return render(request, 'base/room.html', context)
 
-@login_required(login_url='login')
+@login_required(login_url='login') # 2:49:00 
 def createRoom(request):
      form = RoomForm()
      if request.method == 'POST':
@@ -100,12 +100,12 @@ def createRoom(request):
      context = {'form': form}
      return render(request, 'base/room_form.html', context)
 
-@login_required(login_url='login')
+@login_required(login_url='login') # 2:49:00 
 def updateRoom(request, pk):
      room = Room.objects.get(id=pk)
      form = RoomForm(instance=room)
 
-     if request.user != room.host:
+     if request.user != room.host: # 2:49:00 
          return HttpResponse('You  are not allowed here!!')
 
      if request.method == 'POST':
@@ -117,11 +117,11 @@ def updateRoom(request, pk):
      context = {'form': form}
      return render(request, 'base/room_form.html', context)
 
-@login_required(login_url='login')
+@login_required(login_url='login') # 2:49:00 
 def deleteRoom(request, pk):
      room = Room.objects.get(id=pk)
 
-     if request.user != room.host:
+     if request.user != room.host: # 2:49:00 
          return HttpResponse('You  are not allowed here!!')
 
      if request.method == 'POST':
