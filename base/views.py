@@ -53,7 +53,7 @@ def registerPage(request):
     page = 'register'
     form = UserCreationForm()
 
-    if request.method == 'POST':
+    if request.method == 'POST': #3:01:25
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
